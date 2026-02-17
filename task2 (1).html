@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Internship Registration - CampusIntern Portal</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="task2.css" />
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="logo">IN</div>
+      <div>
+        <div style="font-weight:800;font-size:18px;color:#053833">CampusIntern</div>
+        <div style="font-size:12px;color:var(--muted)">College Internship Registration Portal</div>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn">Home</button>
+      <button class="nav-btn">Opportunities</button>
+      <button class="nav-btn">Register</button>
+      <button class="nav-btn primary" onclick="document.getElementById('applicant-name').focus()">Apply Now</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LEFT COLUMN: Internship Registration form + Checklist + Portfolio upload -->
+    <section class="card" aria-labelledby="registration-heading">
+      <h2 id="registration-heading" style="margin-top:0">Internship Application — Register</h2>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+
+      <div id="successBox" class="success-msg">Your application looks ready — review and submit.</div>
+
+      <form id="registrationForm" novalidate>
+        <div class="field">
+          <label for="applicant-name">Full name *</label>
+          <input id="applicant-name" type="text" placeholder="Your full name" required />
+          <div class="error" id="err-name">Please enter your name (2+ characters).</div>
+        </div>
+
+        <div class="field" style="display:flex;gap:8px">
+          <div style="flex:1">
+            <label for="applicant-email">Email *</label>
+            <input id="applicant-email" type="email" placeholder="you@example.com" required />
+            <div class="error" id="err-email">Please enter a valid email address.</div>
+          </div>
+          <div style="width:150px">
+            <label for="applicant-phone">Phone</label>
+            <input id="applicant-phone" type="tel" placeholder="+91 9XXXXXXXX" />
+            <div class="error" id="err-phone">Enter a valid phone number.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="applicant-college">College / Institution *</label>
+          <input id="applicant-college" type="text" placeholder="Your college name" required />
+          <div class="error" id="err-college">Please enter your college name.</div>
+        </div>
+
+        <div class="field" style="display:flex;gap:8px">
+          <div style="flex:1">
+            <label for="applicant-dept">Department *</label>
+            <input id="applicant-dept" type="text" placeholder="Computer Science, ECE, etc." required />
+            <div class="error" id="err-dept">Please enter your department.</div>
+          </div>
+          <div style="width:140px">
+            <label for="applicant-sem">Semester</label>
+            <input id="applicant-sem" type="text" placeholder="4th" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="applicant-degree">Degree</label>
+          <input id="applicant-degree" type="text" placeholder="B.E. / B.Tech / Diploma / BSc" />
+        </div>
+
+        <div class="field">
+          <label for="preferred-role">Preferred role *</label>
+          <select id="preferred-role">
+            <option value="">-- Choose role --</option>
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="fullstack">Full Stack Developer</option>
+            <option value="network">Network Engineer</option>
+            <option value="qa">Quality Assurance / Tester</option>
+            <option value="design">UI/UX Designer</option>
+          </select>
+          <div class="error" id="err-role">Please choose a preferred role.</div>
+        </div>
+
+        <div class="field" style="display:flex;gap:8px">
+          <div style="flex:1">
+            <label for="start-date">Available from</label>
+            <input id="start-date" type="date" />
+          </div>
+          <div style="flex:1">
+            <label for="end-date">Available until</label>
+            <input id="end-date" type="date" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="linkedin">LinkedIn / Portfolio</label>
+          <input id="linkedin" type="text" placeholder="https://linkedin.com/in/yourprofile or portfolio URL" />
+        </div>
+
+        <div class="field">
+          <label for="resume">Upload Resume (PDF, DOC) *</label>
+          <input id="resume" type="file" accept=".pdf,.doc,.docx" />
+          <div class="error" id="err-resume">Please upload your resume (PDF or DOC).</div>
+        </div>
+
+        <div class="field">
+          <label for="application-message">Message / Notes</label>
+          <textarea id="application-message" placeholder="Why do you want this internship? (min 10 characters)"></textarea>
+          <div class="error" id="err-message">Message must be at least 10 characters.</div>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <button type="submit" class="btn primary">Submit Application</button>
+          <button type="button" class="btn" id="resetFormBtn">Reset</button>
+          <div class="muted" style="margin-left:auto;font-size:13px">Client-side validation enabled</div>
+        </div>
+
+        <div style="margin-top:10px;color:var(--muted);font-size:13px">
+          Note: This is a demo front-end form — in production wire this to your backend or email service.
+        </div>
+      </form>
+
+      <div class="divider"></div>
+
+      <!-- Application Checklist -->
+      <div style="margin-bottom:10px">
+        <div class="section-title">
+          <h3 style="margin:0">Application Checklist</h3>
+          <small class="muted">Complete items before submitting</small>
+        </div>
+
+        <div class="todo-inputs">
+          <input id="todoInput" placeholder="Add a checklist item (press Add or Enter)" />
+          <button id="addTodoBtn" class="btn small primary">Add</button>
+        </div>
+        <ul id="todoList" class="todo-list" aria-live="polite"></ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Portfolio / Documents gallery -->
+      <div>
+        <div class="section-title">
+          <h3 style="margin:0">Portfolio / Images</h3>
+          <small class="muted">Add project screenshots or portfolio images</small>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+          <input id="imgUrlInput" placeholder="Image URL (https://...)" />
+          <button id="addUrlImgBtn" class="btn small">Add URL</button>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+          <input id="imgFileInput" type="file" accept="image/*" />
+          <button id="addFileImgBtn" class="btn small">Upload</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN: Applicant profile / instructions -->
+    <aside class="card">
+      <div class="profile">
+        <div class="avatar">IN</div>
+        <div>
+          <h3>Applicant Profile</h3>
+          <p>Fill in the application on the left and upload your resume.</p>
+          <div style="margin-top:8px"><small class="muted">Tip: Prepare a short portfolio link and a 1–2 line intro for the message.</small></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h4 style="margin-bottom:8px">How we evaluate</h4>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px">
+        <div style="background:var(--glass);padding:10px;border-radius:8px">Profile fit</div>
+        <div style="background:var(--glass);padding:10px;border-radius:8px">Skills &amp; projects</div>
+        <div style="background:var(--glass);padding:10px;border-radius:8px">Communication</div>
+        <div style="background:var(--glass);padding:10px;border-radius:8px">Availability</div>
+      </div>
+
+      <div style="margin-top:6px;color:var(--muted);font-size:13px">Complete the checklist, attach resume &amp; portfolio, then submit.</div>
+
+      <div class="divider"></div>
+
+      <h4 style="margin-bottom:8px">Application Stats</h4>
+      <div id="formStats" style="font-size:14px;color:var(--muted)">
+        <div>Fields completed: <strong id="fieldsCompleted">0/7</strong></div>
+        <div>Checklist items: <strong id="checklistCount">0</strong></div>
+        <div>Portfolio images: <strong id="galleryCount">0</strong></div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- External JS -->
+  <script src="task2.js"></script>
+</body>
+</html>

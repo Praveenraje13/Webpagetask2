@@ -1,0 +1,311 @@
+:root {
+  --bg: #f5f8f7;
+  --card: #ffffff;
+  --accent: #0b7a6f;
+  --muted: #6b7b78;
+  --danger: #e04f5f;
+  --success: #2fa36f;
+  --glass: rgba(11, 122, 111, 0.06);
+  font-family: Inter, Roboto, system-ui, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, #eef6f4 100%);
+  color: #113;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 18px;
+}
+
+/* ── Header / Nav (Flexbox) ── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: 0 6px 18px rgba(11, 122, 111, 0.12);
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover { background: var(--glass); }
+
+.nav-btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(11, 122, 111, 0.12);
+}
+
+.nav-btn.primary:hover { background: #0a6d64; }
+
+/* ── Main Grid (CSS Grid) ── */
+main {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(17, 17, 17, 0.06);
+}
+
+/* ── Form ── */
+form .field { margin-bottom: 12px; }
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #0b4f46;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="date"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6e9e8;
+  font-size: 14px;
+  background: #fbfdfc;
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+input.invalid,
+textarea.invalid,
+select.invalid {
+  border-color: var(--danger);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+  padding-top: 10px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 13px;
+  margin-top: 6px;
+  display: none;
+}
+
+.success-msg {
+  display: none;
+  padding: 10px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(47, 163, 111, 0.08), rgba(11, 122, 111, 0.04));
+  color: var(--success);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ── Profile card ── */
+.profile {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #0b7a6f, #2fa36f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.profile h3 { margin: 0 0 6px 0; }
+.profile p  { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* ── Checklist (To-Do) ── */
+.todo-inputs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.todo-inputs input { flex: 1; }
+
+ul.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+li.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #eef2f1;
+  background: var(--glass);
+  transition: all 0.2s ease;
+}
+
+.todo-item:hover { background: rgba(11, 122, 111, 0.1); }
+.todo-item .task-text { flex: 1; }
+.task-done { text-decoration: line-through; opacity: 0.6; }
+
+/* ── Buttons ── */
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn.small { padding: 6px 8px; font-size: 13px; }
+.btn.danger { background: var(--danger); color: #fff; }
+.btn.danger:hover { background: #c73d4e; }
+.btn.primary { background: var(--accent); color: #fff; }
+.btn.primary:hover { background: #0a6d64; }
+
+/* ── Portfolio Gallery Grid ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  min-height: 50px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e9efee;
+  background: #fff;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  transition: transform 0.2s ease;
+}
+
+.gallery-item:hover { transform: scale(1.02); }
+
+.gallery-item img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gallery-item .remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 6px;
+  border: 0;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s ease;
+}
+
+.gallery-item .remove:hover { background: rgba(0, 0, 0, 0.8); }
+
+/* ── Progress bar ── */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #eef2f1;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+/* ── Helpers ── */
+.muted        { color: var(--muted); font-size: 13px; }
+.section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.divider      { height: 1px; background: #eef2f1; margin: 12px 0; border-radius: 4px; }
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+  main { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .nav-btn { display: none; }
+  .gallery-grid { grid-template-columns: repeat(1, 1fr); }
+  header { flex-direction: column; align-items: flex-start; }
+}
